@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const playlists_list = document.querySelector('.playlist_list');
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 5; i++) {
         const playlist_item_li = document.createElement('li');
         playlist_item_li.innerHTML = `
         <div class="list_item">
@@ -283,6 +283,36 @@ document.addEventListener('DOMContentLoaded', () => {
         playlists_list.appendChild(playlist_item_li);
     }
 
-
 })
+
+
+document.getElementById("add_playlist").addEventListener("click", function () {
+    // Prompt the user for the playlist name
+    const playlistName = prompt("Enter the name of the new playlist:");
+
+    // Check if the user entered a name
+    if (playlistName) {
+        // Create a new list item for the playlist
+        const newPlaylistItem = document.createElement("li");
+        newPlaylistItem.innerHTML = `
+            <div class="list_item">
+                <div class="left_playlistItemImg">
+                    <img src="PlaylistCover.png">
+                    <div class="overlay"></div>
+                    <svg viewBox="0 0 24 24" class="playlist_item_overlay">
+                    <path d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"></path>
+                </svg>
+                </div>
+                <div class="artist_info">
+                    <p id="artist_name">${playlistName}</p>
+                    <p id="artist_tag">Playlist</p>
+                </div>
+            </div>
+        `;
+
+        document.querySelector(".playlist_list").appendChild(newPlaylistItem);
+    } else {
+        alert("Playlist name cannot be empty.");
+    }
+});
 
