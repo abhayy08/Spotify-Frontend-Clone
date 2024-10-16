@@ -207,7 +207,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const nextButton = document.getElementById('next');
     const prevButton = document.getElementById('prev');
-
     nextButton.addEventListener('click', () => {
         nextSong();
     });
@@ -215,15 +214,12 @@ document.addEventListener('DOMContentLoaded', () => {
     prevButton.addEventListener('click', () => {
         prevSong();
     });
-
     function nextSong() {
         currIdx = (currIdx + 1) % songs.length;
         audioPlayer.src = songs[currIdx].songName;
         updateSongDisplay();
         playSong();
     }
-
-
     function prevSong() {
         currIdx = (currIdx - 1 + songs.length) % songs.length;
         audioPlayer.src = songs[currIdx].songName;
